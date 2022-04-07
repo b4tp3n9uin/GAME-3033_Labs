@@ -42,6 +42,11 @@ public class ItemPickupComponent : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        InventoryComponent playerInventory;
+        playerInventory = other.GetComponent<InventoryComponent>();
+
+        if (playerInventory) playerInventory.AddItem(itemInstance, amount);
+
 
         //add to inventory.
         //get reference to inventory.
